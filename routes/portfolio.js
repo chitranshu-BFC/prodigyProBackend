@@ -23,7 +23,7 @@ const {
 } = require('../controller/portfolio');
 
 //token verify middleware
-const { verifyToken } = require('../middleware/token');
+// const { verifyToken } = require('../middleware/token');
 
 //SNAPSHOT
 router.post(SNAPSHOT, Snapshot);

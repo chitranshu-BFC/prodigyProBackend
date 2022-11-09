@@ -1,22 +1,13 @@
 const router = require('express').Router();
 const CONFIG = require("../utils/config");
 const { use } = require('./calculators');
-const {
-    AUTH,
-    PRINCIPAL,
-    TEACHER,
-    STUDENT,
-    PARENT,
-    SCHOOL,
-    USER,
-    FILES
-} = CONFIG.ROUTES;
+
 // routes
 // @ /api/auth
-router.use(AUTH, require('./auth'));
+// router.use(AUTH, require('./auth'));
 
 //User's routes
-router.use(USER, require('./user'));
+router.use(require('./user'));
 
 //File Upload route
 // router.use(FILES, require('./fileupload'));
@@ -35,7 +26,6 @@ router.use(require('./rightSchemes'));
 
 //Profile Creation/IIN
 router.use(require('./profileCreationIIN'));
-
 
 //Sample Route
 router.get("/sample", async (req, res) => {

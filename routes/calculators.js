@@ -6,7 +6,12 @@ const CONFIG = require("../utils/config");
 const {
     SIPROUTE,
     ELSSROUTE,
-    EMIROUTE
+    EMIROUTE,
+    FD,
+    LUMPSUM,
+    MARRIAGE,
+    EDUCATION,
+    RETIREMENT
 } = CONFIG.ROUTES
 
 //controllers
@@ -15,11 +20,14 @@ const {
     ELSSCalculator,
     EMICalculator,
     LumpSumCalculator,
-    FDCalculator
+    FDCalculator,
+    MarrigeCalculator,
+    EducationCalculator,
+    RetirmentCalculator
 } = require('../controller/calculators');
 
 //token verify middleware
-const { verifyToken } = require('../middleware/token');
+// const { verifyToken } = require('../middleware/token');
 
 //SIP Route
 router.post(SIPROUTE, SipCalculator);
@@ -31,10 +39,19 @@ router.post(ELSSROUTE, ELSSCalculator);
 router.post(EMIROUTE, EMICalculator);
 
 //LUMPSUM ROUTE
-router.post(EMIROUTE, LumpSumCalculator);
+router.post(LUMPSUM, LumpSumCalculator);
 
 //FD ROUTE
-router.post(EMIROUTE, FDCalculator);
+router.post(FD, FDCalculator);
+
+//MARRIAGE ROUTE
+router.post(MARRIAGE, MarrigeCalculator);
+
+//EDUCATION ROUTE
+router.post(EDUCATION, EducationCalculator);
+
+//RETIREMENT ROUTE
+router.post(RETIREMENT, RetirmentCalculator);
 
 
 module.exports = router;

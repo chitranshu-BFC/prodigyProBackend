@@ -29,7 +29,7 @@ const {
 } = require('../controller/taxPlanning');
 
 //token verify middleware
-const { verifyToken } = require('../middleware/token');
+// const { verifyToken } = require('../middleware/token');
 
 //GET_BASKET_LIST
 router.post(GET_BASKET_LIST, getBasketList);

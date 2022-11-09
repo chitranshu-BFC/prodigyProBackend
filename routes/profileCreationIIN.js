@@ -39,7 +39,7 @@ const {
 } = require('../controller/profileCreationIIN');
 
 //token verify middleware
-const { verifyToken } = require('../middleware/token');
+// const { verifyToken } = require('../middleware/token');
 
 //VERIFY_PAN
 router.post(PAN_VERIFY, profileCreationIIN);

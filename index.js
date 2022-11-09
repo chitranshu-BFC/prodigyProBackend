@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const logger = require('./utils/logger')(__filename);
+// const logger = require('./utils/logger')(__filename);
 const fileUpload = require('express-fileupload');
 const FormData = require('form-data');
 const bodyParser = require('body-parser');
@@ -44,9 +44,9 @@ app.get("/", function (req, res) {
 //LISTEN
 const server = app.listen(port, (err) => {
   if (err) {
-    logger.error('Server Crash At Start ' + JSON.stringify(err));
+    // logger.error('Server Crash At Start ' + JSON.stringify(err));
   } else {
     console.log('Server started At ' + server.address().port);
-    logger.debug('Server Start At ' + server.address().port);
+    // logger.debug('Server Start At ' + server.address().port);
   }
 });

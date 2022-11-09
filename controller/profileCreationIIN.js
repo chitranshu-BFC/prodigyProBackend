@@ -1,7 +1,7 @@
-const logger = require('../utils/logger')(__filename);
+// const logger = require('../utils/logger')(__filename);
 const response = require('../utils/response');
-const { comparePassword } = require('../utils/password');
-const { generateToken, validateToken } = require('../utils/token');
+// const { comparePassword } = require('../utils/password');
+// const { generateToken, validateToken } = require('../utils/token');
 const CONFIG = require('../utils/config');
 
 

@@ -1,10 +1,10 @@
-const logger = require('../utils/logger')(__filename);
+// const logger = require('../utils/logger')(__filename);
 const Config = require('../utils/config');
 const response = require('../utils/response');
 const Axios = require('axios');
 
-const User = require('../model/User');
-const Principal = require('../model/Principal');
+// const User = require('../model/User');
+// const Principal = require('../model/Principal');
 
 module.exports = {
     async userLogin(req, res) {

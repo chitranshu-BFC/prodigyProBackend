@@ -18,7 +18,7 @@ const {
 } = require('../controller/getRightSchemeSIP');
 
 //token verify middleware
-const { verifyToken } = require('../middleware/token');
+// const { verifyToken } = require('../middleware/token');
 
 //PURCHASE_LUMPSUM
 router.post(PURCHASE, PurchaseLumpSum);
