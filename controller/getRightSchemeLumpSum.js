@@ -3,6 +3,7 @@ const response = require('../utils/response');
 // const { comparePassword } = require('../utils/password');
 // const { generateToken, validateToken } = require('../utils/token');
 const CONFIG = require('../utils/config');
+const { auth } = require('../utils/index');
 
 
 module.exports = {
@@ -34,7 +35,7 @@ module.exports = {
             }
 
             //return res.json({data:request_data});
-            Axios.post(api_base_url_prod + '/multi_purchase', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/multi_purchase', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",

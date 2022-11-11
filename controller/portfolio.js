@@ -2,6 +2,7 @@ const { log } = require("winston");
 const getMachine = require('../utils/fdCalculator').getMachine;
 const response = require('../utils/response');
 const Axios = require('axios');
+const { auth } = require('../utils/index');
 
 module.exports = {
     //Snapshot
@@ -18,7 +19,7 @@ module.exports = {
             };
 
             // return res.json({data:JSON.stringify(request_data)});
-            Axios.post(api_url_wms + '/api/snapshot', data, {
+            Axios.post(process.env.API_URL_WMS + '/api/snapshot', data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -81,7 +82,7 @@ module.exports = {
                 "pan": req.body.pan_card,
             };
 
-            Axios.post(api_url_wms + '/api/portfolio_api_data', request_data, {
+            Axios.post(process.env.API_URL_WMS + '/api/portfolio_api_data', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -110,19 +111,17 @@ module.exports = {
                 return response.error(res, 400, { msg: "Empty body" })
             }
 
-            const { loanAmount, rateIntrest, tanureYear } = req.body;
-
             const request_data = {
                 "pan": req.body.pan,
             };
-            console.log("userProfileMemberList", request_data.pan);
-            Axios.post(api_base_url_wms + '/api/userProfileMemberList', request_data, {
+            // console.log("userProfileMemberList", request_data.pan);
+            Axios.post(process.env.API_BASE_URL_WMS + '/api/userProfileMemberList', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
                 },
             }).then((response) => {
-                console.log("userProfileMemberList", response.data);
+                // console.log("userProfileMemberList", response.data);
                 return res.json({ status: 200, data: response.data });
             }).catch(err => {
                 console.log("login err", err);
@@ -142,7 +141,7 @@ module.exports = {
                 "Pan_No": req.body.pan_numbers,
             };
 
-            Axios.post(api_base_url_prod + '/getIINStatus', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getIINStatus', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
@@ -168,7 +167,7 @@ module.exports = {
                 "email": req.body.email
             };
 
-            Axios.post(api_base_url_prod + '/GETIINDETAILSWMS', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/GETIINDETAILSWMS', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
@@ -179,6 +178,43 @@ module.exports = {
                     return res.json({ data: response.data });
                 })
                 .catch(err => console.log(err));
+
+        } catch (error) {
+            console.log("error from elss Calculator ", error);
+            return response.error(res, 500, error);
+        }
+    },
+
+    //PORTFOLIO_DETAIL_API
+
+    async portfolioDetailAPI(req, res) {
+        try {
+
+            if (req.body == null || req.body == undefined) {
+                return response.error(res, 400, { msg: "Empty body/params" })
+            }
+
+            const data = {
+                "name": req.body.name,
+                "pan": req.body.pan,
+                "guard_pan": req.body.guard_pan
+            };
+
+            // return res.json({data:JSON.stringify(request_data)});
+            Axios.post('https://mfprodigy.bfccapital.com/wmsapi/api/portfolio_detailapi_data', data, {
+                headers: {
+                    "Authorization": auth.Authorization,
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type": "application/json"
+                },
+            })
+                .then((response) => {
+                    // console.log('response portfolioDetailApi',response.data.data.portfolio_data);
+                    return res.json({ data: response.data });
+                })
+                .catch((err) => {
+                    return res.json({ status: 400 });
+                });
 
         } catch (error) {
             console.log("error from elss Calculator ", error);

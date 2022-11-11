@@ -1,6 +1,7 @@
 const Config = require('../utils/config')
 
 const response = require('../utils/response');
+const { auth } = require('../utils/index');
 // const { hashPassword, comparePassword } = require('../utils/password');
 
 
@@ -10,7 +11,7 @@ module.exports = {
         try {
 
             //return res.json(JSON.stringify(request_data));
-            Axios.get(api_base_url_prod + '/getNSEBank', {
+            Axios.get(process.env.API_BASE_URL_PROD + '/getNSEBank', {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",

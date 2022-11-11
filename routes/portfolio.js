@@ -9,7 +9,8 @@ const {
     PORTFOLIO,
     USER_PROFILE_MEMBERLIST,
     GET_IIN_STATUS,
-    GET_IIN_DETAILS_WMS
+    GET_IIN_DETAILS_WMS,
+    PORTFOLIO_DETAIL_API
 } = CONFIG.ROUTES
 
 //controllers
@@ -19,7 +20,8 @@ const {
     portfolio,
     UserMemberList,
     getIINStatus,
-    IINDetailsWMS
+    IINDetailsWMS,
+    portfolioDetailAPI
 } = require('../controller/portfolio');
 
 //token verify middleware
@@ -42,6 +44,9 @@ router.post(GET_IIN_STATUS, getIINStatus);
 
 //GET_IIN_DETAILS_WMS
 router.post(GET_IIN_DETAILS_WMS, IINDetailsWMS);
+
+//PORTFOLIO_DETAIL_API
+router.post(PORTFOLIO_DETAIL_API, portfolioDetailAPI);
 
 
 module.exports = router;

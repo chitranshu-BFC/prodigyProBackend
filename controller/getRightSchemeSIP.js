@@ -3,7 +3,7 @@ const response = require('../utils/response');
 // const { comparePassword } = require('../utils/password');
 // const { generateToken, validateToken } = require('../utils/token');
 const CONFIG = require('../utils/config');
-
+const { auth } = require('../utils/index');
 
 module.exports = {
     //BasketList
@@ -16,7 +16,7 @@ module.exports = {
             };
 
             // return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url_prod + '/getBasketList', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getBasketList', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",

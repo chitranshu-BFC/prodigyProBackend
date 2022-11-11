@@ -2,7 +2,9 @@
 const response = require('../utils/response');
 // const { comparePassword } = require('../utils/password');
 // const { generateToken, validateToken } = require('../utils/token');
+const Axios = require('axios');
 const CONFIG = require('../utils/config');
+const { auth } = require('../utils/index');
 
 module.exports = {
     //BasketList
@@ -15,7 +17,7 @@ module.exports = {
             };
 
             // return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url_prod + '/getBasketList', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getBasketList', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -27,7 +29,7 @@ module.exports = {
                     return res.json({ data: response.data });
                 })
                 .catch((err) => {
-                    // console.log('error',err);
+                    console.log('error', err);
                     return res.json({ status: 400 });
                 });
         } catch (error) {
@@ -45,7 +47,7 @@ module.exports = {
                 "amc_code": req.body.amc_code
             };
 
-            Axios.post(api_base_url_prod + '/getProductViaIsinAmc', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getProductViaIsinAmc', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -53,11 +55,11 @@ module.exports = {
                 },
             })
                 .then((response) => {
-                    console.log('response ProductViaISIN', response.data);
+                    // console.log('response ProductViaISIN', response.data);
                     return res.json({ data: response.data });
                 })
                 .catch((err) => {
-                    // console.log('error',err);
+                    console.log('error', err);
                     return res.json({ status: 400 });
                 });
         } catch (error) {
@@ -75,7 +77,7 @@ module.exports = {
                 "amc_code": req.body.amc_code
             };
 
-            Axios.post(api_base_url_prod + '/getProductViaIsinAmc', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getProductViaIsinAmc', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -83,11 +85,11 @@ module.exports = {
                 },
             })
                 .then((response) => {
-                    console.log('response ProductViaISIN', response.data);
+                    // console.log('response ProductViaISIN', response.data);
                     return res.json({ data: response.data });
                 })
                 .catch((err) => {
-                    // console.log('error',err);
+                    console.log('error', err);
                     return res.json({ status: 400 });
                 });
         } catch (error) {
@@ -105,7 +107,7 @@ module.exports = {
                 "amc_code": req.body.amc_code
             };
 
-            Axios.post(api_base_url_prod + '/getProductViaIsinAmc', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getProductViaIsinAmc', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -113,11 +115,11 @@ module.exports = {
                 },
             })
                 .then((response) => {
-                    console.log('response ProductViaISIN', response.data);
+                    // console.log('response ProductViaISIN', response.data);
                     return res.json({ data: response.data });
                 })
                 .catch((err) => {
-                    // console.log('error',err);
+                    console.log('error', err);
                     return res.json({ status: 400 });
                 });
         } catch (error) {
@@ -136,7 +138,7 @@ module.exports = {
             };
 
             //return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url_prod + '/getBankMultipleFromNse?email=' + request_data.email + "&iin=" + request_data.iin, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getBankMultipleFromNse?email=' + request_data.email + "&iin=" + request_data.iin, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -148,7 +150,7 @@ module.exports = {
                     return res.json({ data: response.data });
                 })
                 .catch((err) => {
-                    // console.log('error',err);
+                    console.log('error', err);
                     return res.json({ status: 400 });
                 });
         } catch (error) {
@@ -176,7 +178,7 @@ module.exports = {
             };
 
 
-            Axios.post(api_base_url + '/api/insertTransactionDetails', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/insertTransactionDetails', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -184,7 +186,7 @@ module.exports = {
                 },
             })
                 .then((response) => {
-                    console.log('response mobileno', response.data);
+                    // console.log('response mobileno', response.data);
                     return res.json({ data: response.data });
                 })
                 .catch(err => {
@@ -228,7 +230,7 @@ module.exports = {
             };
 
             //return res.json({data:request_data});
-            Axios.post(api_base_url_prod + '/multi_purchase_sip', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/multi_purchase_sip', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
@@ -239,7 +241,7 @@ module.exports = {
                     return res.json({ data: response.data });
                 })
                 .catch((err) => {
-                    // console.log('error',err);
+                    console.log('error', err);
                     return res.json({ status: 400 });
                 });
 
@@ -280,7 +282,7 @@ module.exports = {
             };
 
             //return res.json({data:request_data});
-            Axios.post(api_base_url_prod + '/multi_purchase_sip', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/multi_purchase_sip', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
@@ -291,7 +293,7 @@ module.exports = {
                     return res.json({ data: response.data });
                 })
                 .catch((err) => {
-                    // console.log('error',err);
+                    console.log('error', err);
                     return res.json({ status: 400 });
                 });
 

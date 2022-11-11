@@ -2,6 +2,7 @@
 const Config = require('../utils/config');
 const response = require('../utils/response');
 const Axios = require('axios');
+const { auth } = require('../utils/index');
 
 // const User = require('../model/User');
 // const Principal = require('../model/Principal');
@@ -47,7 +48,7 @@ module.exports = {
             };
 
             // return res.json({data:req.body.name});
-            Axios.post(api_base_url + '/api/registers', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/registers', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
@@ -81,7 +82,7 @@ module.exports = {
             };
 
             // return res.json({data:req.body.name});
-            Axios.post(api_base_url + '/api/registers', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/registers', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"
@@ -112,7 +113,7 @@ module.exports = {
             };
 
             // return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url + '/api/updatePassword', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/updatePassword', request_data, {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-Type": "application/json"

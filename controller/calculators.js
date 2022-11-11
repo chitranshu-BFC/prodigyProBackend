@@ -2,6 +2,7 @@ const { log } = require("winston");
 const getMachine = require('../utils/fdCalculator').getMachine;
 const response = require('../utils/response');
 const axios = require('axios');
+const { auth } = require('../utils/index');
 
 module.exports = {
     //SIP calculator

@@ -3,7 +3,7 @@ const response = require('../utils/response');
 // const { comparePassword } = require('../utils/password');
 // const { generateToken, validateToken } = require('../utils/token');
 const CONFIG = require('../utils/config');
-
+const { auth } = require('../utils/index');
 
 module.exports = {
     //Profile/IIN Creation
@@ -16,7 +16,7 @@ module.exports = {
             };
 
             // return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url_prod + '/getBasketList', request_data, {
+            Axios.post(process.env.API_BASE_URL_PROD + '/getBasketList', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -74,7 +74,7 @@ module.exports = {
     //Get getoccupations
     async getoccupations(req, res) {
         try {
-            Axios.get(api_base_url + '/api/nse/getOccupation', {
+            Axios.get(process.env.API_BASE_URL + '/api/nse/getOccupation', {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -95,7 +95,7 @@ module.exports = {
     //Get Income
     async getIncome(req, res) {
         try {
-            Axios.get(api_base_url + '/api/persional_details/getIncome', {
+            Axios.get(process.env.API_BASE_URL + '/api/persional_details/getIncome', {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -118,7 +118,7 @@ module.exports = {
     async accountType(req, res) {
         try {
 
-            Axios.get(api_base_url + '/api/persional_details/getAccountType', {
+            Axios.get(process.env.API_BASE_URL + '/api/persional_details/getAccountType', {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -142,7 +142,7 @@ module.exports = {
         try {
 
             //return res.json(JSON.stringify(request_data));
-            Axios.get(api_base_url_prod + '/getNSEBank', {
+            Axios.get(process.env.API_BASE_URL_PROD + '/getNSEBank', {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -167,7 +167,7 @@ module.exports = {
         try {
 
             //return res.json(JSON.stringify(request_data));
-            Axios.get(api_base_url + '/api/persional_details/getCountry', {
+            Axios.get(process.env.API_BASE_URL + '/api/persional_details/getCountry', {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -191,7 +191,7 @@ module.exports = {
     async getRelationshipMaster(req, res) {
         try {
 
-            Axios.get(api_base_url_prod + '/getRelationshipMaster')
+            Axios.get(process.env.API_BASE_URL_PROD + '/getRelationshipMaster')
                 .then((response) => {
                     return res.json({ data: response.data });
                 })
@@ -213,7 +213,7 @@ module.exports = {
             };
 
             //return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url + '/api/persional_details/getStateCitybyPincode', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/persional_details/getStateCitybyPincode', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -255,7 +255,7 @@ module.exports = {
                 "relation_with_admin": req.body.relation_with_admin
             };
             // console.log('response userIincreationController', request_data);
-            Axios.post(api_base_url + '/api/userIincreationController/user_profile_creation', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/userIincreationController/user_profile_creation', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -295,7 +295,7 @@ module.exports = {
                 };
 
                 // return res.json(JSON.stringify(request_data));
-                Axios.post(api_base_url + '/api/userIincreationController/address_details_pc', request_data, {
+                Axios.post(process.env.API_BASE_URL + '/api/userIincreationController/address_details_pc', request_data, {
                     headers: {
                         "Authorization": auth.Authorization,
                         "Access-Control-Allow-Origin": "*",
@@ -327,7 +327,7 @@ module.exports = {
                 };
 
                 // return res.json(JSON.stringify(request_data));
-                Axios.post(api_base_url + '/api/userIincreationController/address_details_pc', request_data, {
+                Axios.post(process.env.API_BASE_URL + '/api/userIincreationController/address_details_pc', request_data, {
                     headers: {
                         "Authorization": auth.Authorization,
                         "Access-Control-Allow-Origin": "*",
@@ -358,7 +358,7 @@ module.exports = {
             };
 
             //  return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url + '/api/userIincreationController/declaration_journy_pc', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/userIincreationController/declaration_journy_pc', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -385,7 +385,7 @@ module.exports = {
             };
 
             // return res.json(JSON.stringify(request_data));
-            Axios.get(api_base_url + '/api/userIincreationController/allNominee_pc/' + req.body.user_id, {
+            Axios.get(process.env.API_BASE_URL + '/api/userIincreationController/allNominee_pc/' + req.body.user_id, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",
@@ -412,7 +412,7 @@ module.exports = {
             };
 
             // return res.json(JSON.stringify(request_data));
-            Axios.post(api_base_url + '/api/userIincreationController/CreateCustomer_pc', request_data, {
+            Axios.post(process.env.API_BASE_URL + '/api/userIincreationController/CreateCustomer_pc', request_data, {
                 headers: {
                     "Authorization": auth.Authorization,
                     "Access-Control-Allow-Origin": "*",

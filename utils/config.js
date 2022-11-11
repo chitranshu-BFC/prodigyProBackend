@@ -52,7 +52,8 @@ CONFIG.ROUTES = {
   LUMPSUM: "/lumpsum",
   MARRIAGE: "/marrige",
   EDUCATION: "/education",
-  RETIREMENT: "/retirment"
+  RETIREMENT: "/retirment",
+  PORTFOLIO_DETAIL_API: "/portfolioDetailApi"
 };
 
 
